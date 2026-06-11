@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Todo app</title>
+</head>
+<body>
+  <!--HEADING: imagem, logo, e botão de trocar tema-->
+    <div class="heading">
+      <h1>TODO</h1><button><img src="images\icon-moon.svg"></button>
+    </div>
+  <!--seção de adicionar tarefa com enter ou botão enviar-->
+    <div class="newTodo bRadius">
+      <form id="form">
+        <input id="todoInput" placeholder="Create a new todo...">
+      </form>
+    </div>
+  <!--lista de tarefas com div no final dizendo tarefas restantes e botão clear completed-->
+    <div class="todoList">
+      
+    </div>
+    <div class="todoInfo">
+        <div>items left</div><button>Clear Completed</button>
+      </div>
+  <!--seção com filtros: all // active // completed-->
+    <div class="todoFilters bRadius">
+      <button class="filter">All</button>
+      <button class="filter">Active</button>
+      <button class="filter">Completed</button>
+    </div>
+  <script src="script.js"></script>
+</body>
+</html>
