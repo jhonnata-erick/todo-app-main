@@ -25,6 +25,7 @@ button {
     padding: 0;
     color: hsl(236, 9%, 61%);
     font-weight: bold;
+    cursor: pointer;
 }
 input {
     border:none;
@@ -54,8 +55,6 @@ input {
     flex-direction: column;
     background-color: hsl(0, 0%, 98%);
     color: hsl(235, 19%, 35%);
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
 }
 .todoInfo {
     display: flex;
@@ -65,9 +64,9 @@ input {
     font-weight: 400;
     font-size: 0.8rem;
     padding: 1.0rem;
-    background-color: hsl(0, 0%, 98%);
+    /*background-color: hsl(0, 0%, 98%);
     border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;*/
 }
 .todo {
     border-bottom: 1px solid hsl(236, 9%, 61%);
