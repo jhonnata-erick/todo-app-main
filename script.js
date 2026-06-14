@@ -1,7 +1,9 @@
-const todo = []
-const todoCompleted = []
-const todoActive = []
+let nextId = 0;
+const todo = [];
 const form = document.getElementById('form');
+let todosActiveCount = 0
+todoActive();
+let todoCompleted
 let todoInput
 let todoId
 form.addEventListener('submit', function(prevR) {
@@ -16,26 +18,66 @@ form.addEventListener('submit', function(prevR) {
     }
 });
 
-
-
 function newTodo() {
-    todoAdd();
-    todoActive.splice(0, 0, todoInput);
-    todo.splice(0, 0, todoInput);
-    document.querySelector('#todoList').innerHTML = todo.join("");
-};
-function todoAdd() {
-    todoInput = `<div id="todo${todo.length}" class="todo">
-        <input type="checkbox">
+    todo[todo.length] = {id:nextId, text:todoInput, completed:false};
+    document.getElementById('todoList').innerHTML += `
+    <div id="${nextId}" class="todo">
+        <input type="checkbox" onclick="todoCheck(${nextId})">
         ${todoInput}
-        <button onclick="todoRemove('${todo.length}')">
+        <button onclick="todoRemove('${nextId}')">
             <img src="images/icon-cross.svg">
         </button>
-    </div>`
+    </div>
+    `
+    ++nextId;
+    ++todosActiveCount;
+    todoActive()
+    console.log(todo); 
 };
 function todoRemove(todoId) {
-    document.getElementById(`todo${todoId}`).outerHTML = null;
-    todo.splice(`${todoId}`, 1);
-    document.querySelector('#todoList').innerHTML = todo.join("");
+    document.getElementById(todoId).outerHTML = null
+    todo.splice(todo.findIndex(item => item.id == todoId), 1)
+    console.log(todo)
+    todosActiveCount = todo.filter(item => item.completed != true).length
+    todoActive()
 }
+function clearCompleted() {
+    todoCompleted = todo.filter(item => item.completed != true);
+    console.log(todoCompleted);
+    while (todo !== todoCompleted) {
+        document.querySelector('.completed').outerHTML = null;
+        todo.splice(todo.findIndex(item => item.completed == true), 1);
+        console.log(todo);
+    };
+    todosActiveCount = todoCompleted.length;
+    todoActive()
+    console.log(todo);
+}
+function todoCheck(todoId) {
+    todo.map(item => {
+        if (item.id == todoId && item.completed == false) {
+            item.completed = true;
+            document.getElementById(todoId).classList.add('completed');
+            --todosActiveCount;
+            todoActive()
+        } else if (item.id == todoId && item.completed == true) {
+            item.completed = false;
+            document.getElementById(todoId).classList.remove('completed');
+            ++todosActiveCount
+            todoActive()
+        }
+    });
+    console.log(todo)
+}
+function todoActive() {
+    document.getElementById('todoActive').innerHTML = todosActiveCount + " ";
+}
+function filterAll() {
 
+}
+function filterActive() {
+
+}
+function filterCompleted() {
+    
+}

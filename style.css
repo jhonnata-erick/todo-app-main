@@ -75,6 +75,10 @@ input {
     align-items: center;
     display: flex;
 }
+.todo.completed {
+    color: hsl(236, 9%, 61%);
+    text-decoration-line: line-through;
+}
 .todo button {
     margin-left: auto;
 }
