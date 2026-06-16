@@ -12,7 +12,7 @@
 <body>
   <!--HEADING: imagem, logo, e botão de trocar tema-->
     <div class="heading">
-      <h1>TODO</h1><button><img src="images\icon-moon.svg"></button>
+      <h1>TODO</h1><button onclick="themeSwitch()" id="themeSwitcher"><img class="darkthemebutton" src="images\icon-moon.svg"></button>
     </div>
   <!--seção de adicionar tarefa com enter ou botão enviar-->
     <div class="newTodo bRadius">
@@ -32,11 +32,11 @@
     </div>
     
   <!--seção com filtros: all // active // completed-->
-    <div class="todoFilters bRadius">
-      <button class="filter">All</button>
-      <button class="filter">Active</button>
-      <button class="filter">Completed</button>
-    </div>
+    <form onsubmit="return false;" class="todoFilters bRadius">
+      <button id="all" onclick="filterAll()" class="filter active">All</button>
+      <button id="active" onclick="filterActive()" class="filter">Active</button>
+      <button id="complete" onclick="filterCompleted()" class="filter">Completed</button>
+    </form>
   <script src="script.js"></script>
 </body>
 </html>

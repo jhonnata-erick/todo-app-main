@@ -12,9 +12,12 @@ body {
     flex-direction: column;
     padding: 1.5rem;
 }
-/*:hover {
-
-}*/
+button:hover {
+    color:hsl(235, 19%, 35%);
+}
+.filter:hover {
+    color:hsl(235, 19%, 35%);
+}
 :focus {
     outline: none;
     color:hsl(235, 19%, 35%);
@@ -26,6 +29,9 @@ button {
     color: hsl(236, 9%, 61%);
     font-weight: bold;
     cursor: pointer;
+}
+button.active {
+    color: hsl(220, 98%, 61%);
 }
 input {
     border:none;
@@ -74,12 +80,14 @@ input {
     padding: 1.0rem;
     align-items: center;
     display: flex;
+    gap: 15px;
+    justify-content: start;
 }
 .todo.completed {
     color: hsl(236, 9%, 61%);
     text-decoration-line: line-through;
 }
-.todo button {
+.todo button.cross {
     margin-left: auto;
 }
 .todoFilters {
@@ -89,4 +97,95 @@ input {
     background-color: hsl(0, 0%, 98%);
     padding: 1.0rem;
     margin: 1.0rem 0 0
+}
+body.dark {
+    background-color: hsl(235, 21%, 11%);
+    background-image: url(./images/bg-mobile-dark.jpg);
+}
+
+button.dark:hover {
+    color:hsl(236, 33%, 92%);
+}
+.filter.dark:hover {
+    color:hsl(236, 33%, 92%);
+}
+.dark:focus {
+    outline: none;
+    color:hsl(236, 33%, 92%);
+}
+button.dark {
+    color: hsl(235, 16%, 43%);
+}
+input.dark {
+    color: hsl(234, 39%, 85%);
+}
+.newTodo.dark {
+    background-color: hsl(237, 14%, 26%);
+}
+.todoList.dark {
+    background-color: hsl(237, 14%, 26%);
+    color: hsl(234, 39%, 85%);
+}
+.todoInfo.dark {
+    color: hsl(233, 14%, 35%);
+}
+.todo.dark {
+    border-bottom: 1px solid hsl(233, 14%, 35%);
+    color: hsl(234, 39%, 85%);
+}
+.todo.completed.dark {
+    color: hsl(233, 14%, 35%);
+}
+.todoFilters.dark {
+    background-color: hsl(237, 14%, 26%);
+}
+.active.dark {
+    color: hsl(220, 98%, 61%);
+}
+.check {
+    cursor: pointer;
+    display: flex;
+    padding: 8px;
+    background: none;
+    border-radius: 50%;
+    border: 1.5px solid hsl(235, 19%, 35%);
+    align-self: center;
+}
+.check:hover {
+    border:2px linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+.completed .check {
+    background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border-radius: 50%;
+}
+@media (min-width: 528px) {
+    body {
+        background-image: url(./images/bg-desktop-light.jpg);
+        display: flex;
+        align-items: center;
+        padding: 10vh 0;
+
+    }
+    body.dark {
+        background-image: url(./images/bg-desktop-dark.jpg);
+    }
+    .heading {
+       width: 480px;
+    }
+    .newTodo {
+        width: 448px;
+    }
+    .todoList {
+        width: 480px;
+    }
+    .todoInfo {
+        width: 448px;
+    }
+    .todo {
+        width: 448px;
+    }
+    .todoFilters {
+        width: 448px;
+    }
+
 }
